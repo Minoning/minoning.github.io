@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Портфолио — Python-разработчик: парсинг, автоматизация, ИИ-боты</title>
+<style>
+  :root {
+    --bg: #f7f8fa;
+    --card: #ffffff;
+    --text: #1c2430;
+    --muted: #5b6472;
+    --accent: #2f6bff;
+    --accent-soft: #eaf0ff;
+    --border: #e6e9ef;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 20px 16px 56px; }
+  @media (min-width: 720px) { .wrap { padding: 40px 20px 80px; } }
+  header { padding: 24px 0 8px; }
+  @media (min-width: 720px) { header { padding: 40px 0 12px; } }
+  .eyebrow {
+    display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: .4px;
+    color: var(--accent); background: var(--accent-soft);
+    padding: 5px 12px; border-radius: 999px; margin-bottom: 16px;
+  }
+  h1 { font-size: clamp(24px, 7vw, 34px); line-height: 1.2; letter-spacing: -.5px; }
+  h1 .dim { color: var(--muted); font-weight: 500; }
+  .subtitle { color: var(--muted); font-size: clamp(15px, 4.2vw, 17px); margin-top: 14px; max-width: 640px; }
+  .contact-row { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .contact-row a {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    flex: 1 1 auto; min-height: 46px;
+    background: var(--card); border: 1px solid var(--border); border-radius: 999px;
+    padding: 10px 18px; font-size: 14px; font-weight: 500; color: var(--text); text-decoration: none;
+  }
+  .contact-row a:hover, .contact-row a:active { border-color: var(--accent); color: var(--accent); }
+  .contact-row .dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; flex: 0 0 auto; }
+  section { margin-top: 40px; }
+  @media (min-width: 720px) { section { margin-top: 56px; } }
+  h2 { font-size: clamp(19px, 5vw, 22px); letter-spacing: -.3px; margin-bottom: 16px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    background: var(--card); border: 1px solid var(--border); border-radius: 999px;
+    padding: 8px 15px; font-size: 14px; font-weight: 500;
+  }
+  .cards { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  @media (min-width: 720px) { .cards { grid-template-columns: 1fr 1fr 1fr; } }
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 20px; display: flex; flex-direction: column;
+  }
+  @media (min-width: 720px) { .card { padding: 24px; } }
+  .card h3 { font-size: 17px; margin-bottom: 6px; }
+  .card .goal { color: var(--accent); font-size: 13px; font-weight: 600; margin-bottom: 10px; }
+  .card p { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+  .taglist { margin-top: auto; display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { font-size: 12px; color: var(--muted); background: var(--bg); border: 1px solid var(--border); padding: 3px 8px; border-radius: 6px; }
+  ol.steps { margin-left: 20px; color: var(--muted); font-size: 15px; }
+  ol.steps li { margin-bottom: 8px; }
+  .cta {
+    margin-top: 40px; background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 22px;
+  }
+  @media (min-width: 720px) { .cta { margin-top: 56px; padding: 28px; } }
+  .cta h2 { margin-bottom: 8px; }
+  .cta p { color: var(--muted); font-size: 15px; margin-bottom: 16px; }
+  footer { margin-top: 40px; color: var(--muted); font-size: 13px; text-align: center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span class="eyebrow">Фриланс · Разработка и автоматизация</span>
+    <h1><span class="dim">Python-разработчик:</span> парсинг, автоматизация, ИИ-боты</h1>
+    <p class="subtitle">
+      Собираю данные с защищённых сайтов, подключаю сервисы по API и автоматизирую рутину —
+      под конкретный результат заказчика. Работаю удалённо, по всей РФ.
+    </p>
+    <div class="contact-row">
+      <a href="https://t.me/Jcucx"><span class="dot"></span>Telegram: @Jcucx</a>
+      <a href="https://vk.ru/idgolubkovs">VK: vk.com/idgolubkovs</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Что делаю</h2>
+    <div class="chips">
+      <span class="chip">Парсинг и сбор данных</span>
+      <span class="chip">Обход защиты (антибот)</span>
+      <span class="chip">Чат-боты и ИИ-ассистенты</span>
+      <span class="chip">Интеграции по API</span>
+      <span class="chip">Автоматизация процессов</span>
+      <span class="chip">Скрипты и мелкие сервисы</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Кейсы</h2>
+    <div class="cards">
+
+      <div class="card">
+        <h3>Антибот-парсер Avito</h3>
+        <div class="goal">Сбор объявлений с обходом защиты</div>
+        <p>Парсер тянет данные объявлений с Avito через реальный браузер в режиме stealth —
+        без банов и капчи. Данные сохраняются в базу, есть уведомления о новых объявлениях.</p>
+        <div class="taglist">
+          <span class="tag">Python · asyncio</span>
+          <span class="tag">Patchright + Chrome</span>
+          <span class="tag">Stealth / антибот</span>
+          <span class="tag">SQLite</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>ИИ-администратор чата (VK-бот)</h3>
+        <div class="goal">Автоматические ответы и сбор заявок</div>
+        <p>Бот на DeepSeek отвечает на вопросы по базе знаний заведения, собирает заявки,
+        шлёт напоминания и уведомления. Настраивается под любую нишу через конфиг.</p>
+        <div class="taglist">
+          <span class="tag">Python</span>
+          <span class="tag">VK Long Poll API</span>
+          <span class="tag">DeepSeek (LLM)</span>
+          <span class="tag">RAG · SQLite</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Сбор лидов из 2ГИС</h3>
+        <div class="goal">Базы контактов для холодных продаж</div>
+        <p>Автоматический обход 2ГИС по нишам и городам: собирает названия, телефоны,
+        VK, сайты и рейтинги заведений в готовый CSV-файл.</p>
+        <div class="taglist">
+          <span class="tag">Браузерная автоматизация</span>
+          <span class="tag">Patchright</span>
+          <span class="tag">Мультигород</span>
+          <span class="tag">CSV-выгрузка</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>Как работаю</h2>
+    <ol class="steps">
+      <li>Вы описываете задачу и желаемый результат.</li>
+      <li>Я фиксирую объём, срок и стоимость письменно.</li>
+      <li>Делаю по этапам, показываю результат на реальных данных.</li>
+      <li>Передаю с инструкцией и даю 30 дней правок по багам.</li>
+    </ol>
+  </section>
+
+  <div class="cta">
+    <h2>Есть задача по данным или автоматизации?</h2>
+    <p>Напишите — за пару дней соберу демо под вашу нишу, чтобы вы оценили качество до сделки.</p>
+    <div class="contact-row">
+      <a href="https://t.me/Jcucx"><span class="dot"></span>Telegram: @Jcucx</a>
+      <a href="https://vk.ru/idgolubkovs">VK: vk.com/idgolubkovs</a>
+    </div>
+  </div>
+
+  <footer>Работаю удалённо · Оплата через безопасную сделку · НПД (самозанятость)</footer>
+</div>
+</body>
+</html>
